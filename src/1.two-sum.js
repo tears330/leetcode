@@ -29,6 +29,17 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-    
-};
+const twoSum = (nums, target) => {
+  const hashMap = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (hashMap[target - nums[i]] !== undefined) {
+      if (i > hashMap[target - nums[i]]) {
+        return [hashMap[target - nums[i]], i];
+      } else {
+        return [i, hashMap[target - nums[i]]];
+      }
+    }
+    hashMap[nums[i]] = i;
+  }
+}
+
